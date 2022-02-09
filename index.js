@@ -1,19 +1,15 @@
-var spsave = require("spsave").spsave;
-var fs = require('fs');
+let spsave = require("spsave").spsave;
 
-function trimSlashes(string) {
-    return string.replace(new RegExp('/', 'g'), '_');
-}
-
-var coreOptions = {
+let coreOptions = {
     siteUrl: process.env.SITE_URL,
 };
-var creds = {
+
+let creds = {
     username: process.env.USER,
     password: process.env.PASSWD
 };
 
-var fileOptions = {
+let fileOptions = {
     base: process.env.FILE_BASE,
     glob: process.env.FILE_GLOB,
     folder: process.env.LIB_FOLDER
