@@ -1,29 +1,18 @@
-var spsave = require("spsave").spsave;
-var fs = require('fs');
+let spsave = require("spsave").spsave;
 
-function trimSlashes(string) {
-    return string.replace(new RegExp('/', 'g'), '_');
-}
-
-var coreOptions = {
+let coreOptions = {
     siteUrl: process.env.SITE_URL,
 };
-var creds = {
+
+let creds = {
     username: process.env.USER,
     password: process.env.PASSWD
 };
 
-var now = new Date().toISOString().slice(0,10);
-
-var ref = "";
-if (process.env.GITHUB_REF) {
-  ref = process.env.GITHUB_REF.substr(process.env.GITHUB_REF.lastIndexOf('/') + 1);
-}
-
-var fileOptions = {
-    folder: process.env.LIB_FOLDER, 
-    fileName: `${trimSlashes(process.env.GITHUB_REPOSITORY)}_${ref}_${now}.zip`,
-    fileContent: fs.readFileSync(process.env.FILE_PATH)
+let fileOptions = {
+    base: process.env.FILE_BASE,
+    glob: process.env.FILE_GLOB,
+    folder: process.env.LIB_FOLDER
 };
 
 spsave(coreOptions, creds, fileOptions)
@@ -31,5 +20,6 @@ spsave(coreOptions, creds, fileOptions)
     console.log('Success');
 })
 .catch(function(err){
+    console.error('Failure');
     process.exit(1);
 });
