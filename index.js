@@ -13,13 +13,6 @@ var creds = {
     password: process.env.PASSWD
 };
 
-var now = new Date().toISOString().slice(0,10);
-
-var ref = "";
-if (process.env.GITHUB_REF) {
-  ref = process.env.GITHUB_REF.substr(process.env.GITHUB_REF.lastIndexOf('/') + 1);
-}
-
 var fileOptions = {
     base: process.env.FILE_BASE,
     glob: process.env.FILE_GLOB,
@@ -31,5 +24,6 @@ spsave(coreOptions, creds, fileOptions)
     console.log('Success');
 })
 .catch(function(err){
+    console.error('Failure');
     process.exit(1);
 });
