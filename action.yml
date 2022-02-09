@@ -1,5 +1,5 @@
 # action.yml
-name: 'Publish files to Sharepoint'
+name: 'Publish specified files to Sharepoint'
 description: 'Upload specified files to a Sharepoint library'
 author: 'Olivier Brassard'
 branding:
@@ -21,7 +21,7 @@ inputs:
     required: true
     default: "Shared documents"
   file_base:
-    description: 'The base path where to search for files from'
+    description: 'The base path to strip from matched files when naming them in SharePoint'
     required: false
     default: './'
   file_glob:

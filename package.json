@@ -1,7 +1,7 @@
 {
-  "name": "@stage3talent/action-sharepoint-publish",
+  "name": "@stage3talent/action-sharepoint-publish-files",
   "version": "2.0.0",
-  "description": "Github Action that uploads files to a Sharepoint library",
+  "description": "Github Action that uploads specified files to a Sharepoint library",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
