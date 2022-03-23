@@ -1,6 +1,6 @@
 # action-sharepoint-publish
 
-A simple Github Action that uploads files to a Sharepoint library based on a glob match for filenames
+A simple Github Action that uploads files to a Sharepoint library based on a glob match for filenames.
 
 Based on the action [obrassard/action-sharepoint-publish](https://github.com/obrassard/action-sharepoint-publish) which would only create a zip of an entire repo to upload.
 
