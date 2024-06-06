@@ -28,12 +28,17 @@ inputs:
     description: 'The glob pattern to search for files with'
     required: false
     default: '**'
+  sharepoint_online_auth: 
+    description: 'Use authentication for sharepoint online ("true"/"false")'
+    required: false
+    default: 'false'
 
 runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
     SITE_URL : ${{ inputs.site_url }}
+    SPO_AUTH : ${{ inputs.sharepoint_online_auth }}
     USER : ${{ inputs.sharepoint_user }}
     PASSWD: ${{ inputs.sharepoint_password }}
     LIB_FOLDER : ${{ inputs.library_folder }}
