@@ -4,18 +4,10 @@ let coreOptions = {
     siteUrl: process.env.SITE_URL,
 };
 
-let creds;
-if (process.env.SPO_AUTH == 'true') {
-    creds = {
-        clientId: process.env.USER,
-        clientSecret: process.env.PASSWD
-    }; 
-} else {
-    creds = {
-        username: process.env.USER,
-        password: process.env.PASSWD
-    };
-}
+let creds = {
+    clientId: process.env.USER,
+    clientSecret: process.env.PASSWD
+};
 
 let fileOptions = {
     base: process.env.FILE_BASE,
@@ -29,5 +21,6 @@ spsave(coreOptions, creds, fileOptions)
 })
 .catch(function(err){
     console.error('Failure');
+	console.error(err);
     process.exit(1);
 });
